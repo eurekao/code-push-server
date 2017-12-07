@@ -12,10 +12,10 @@ config.development = {
   },
   // Config for qiniu (http://www.qiniu.com/) cloud storage when storageType value is "qiniu".
   qiniu: {
-    accessKey: "",
-    secretKey: "",
-    bucketName: "",
-    downloadUrl: "" // Binary files download host address.
+    accessKey: process.env.QINIU_ACCESS_KEY_ID,
+    secretKey: process.env.QINIU_SECRET_ACCESS_KEY,
+    bucketName:  process.env.BUCKET_NAME,
+    downloadUrl: process.env.DOWNLOAD_URL // Binary files download host address.
   },
   // Config for Amazon s3 (https://aws.amazon.com/cn/s3/) storage when storageType value is "s3".
   s3: {
