@@ -13,6 +13,25 @@
 
 CodePush Server is a CodePush progam server! microsoft CodePush cloud is slow in China, we can use this to build our's. I use [qiniu](http://www.qiniu.com/) to store the files, because it's simple and quick!  Or you can use local storage, just modify config.js file, it's simple configure.
 
+## Docker 部署
+```
+docker run -d --name=code-push-server --restart=always \
+   -p 8089:80 \
+   -v /root/codepush:/opt/codepush-server/data \
+   -e RDS_PASSWORD="" \
+   -e RDS_HOST="" \
+   -e QINIU_ACCESS_KEY_ID="" \
+   -e QINIU_SECRET_ACCESS_KEY="9" \
+   -e BUCKET_NAME="" \
+   -e DOWNLOAD_URL="" \
+   -e TOKEN_SECRET="" \
+   -e DATA_DIR="/opt/codepush-server/data" \
+   -e STORAGE_TYPE="qiniu" \
+code-push-server:latest
+```
+## 修改密码
+http://codepush.zhipoo.com/users/password?access_token= patch with {oldPassword,newPassword}
+
 ## qq交流群 535491067
 
 ## 正确使用code-push热更新
